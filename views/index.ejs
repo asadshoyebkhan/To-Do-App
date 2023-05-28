@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1><b>Hello Today is, <%= display_date %></b></h1>
+    <h2>Todo List for <%= display_date %>
+    </h2>
+
+    <ul>
+        <% for(var i=0; i<fruit_list.length; i++) { %>
+            <h3>
+                <li>
+                    <%= fruit_list[i] %>
+                        <form action="/delete/<%= i %>" method="POST" style="display: inline;">
+                            <button class="button" type="submit">Remove</button>
+                        </form>
+                </li>
+            </h3>
+            <% } %>
+    </ul>
+
+    <form action="/" method="POST">
+        <input type="text" name="fruitInput">
+        <button class="button" type="submit">Add Items</button>
+    </form>
+</body>
+
+</html>
